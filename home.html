@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consortia – Modern Collaboration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f2a44;
+      --secondary: #1f6ae1;
+      --background: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #123a5f);
+      color: #fff;
+      padding: 28px 64px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    nav a:hover { opacity: 1; }
+
+    section {
+      padding: 90px 24px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 24px 100px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 24px auto 36px;
+      color: #e5e7eb;
+      font-size: 18px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 6px;
+    }
+
+    .primary-btn {
+      background: var(--secondary);
+      color: #fff;
+    }
+
+    .secondary-btn {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .subheading {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 48px;
+      align-items: center;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #eef4ff, #f9fbff);
+      border-radius: var(--radius);
+      padding: 60px 48px;
+    }
+
+    footer {
+      background: #0b1f33;
+      color: #cbd5e1;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    footer p { margin: 6px 0; }
+
+    @media (max-width: 768px) {
+      header { padding: 20px 24px; }
+      .hero h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <strong>Consortia</strong>
+    <div>
+      <a href="#about">About</a>
+      <a href="#model">Model</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#governance">Governance</a>
+      <a href="#join">Join</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Collaboration Built for Complex Industries</h1>
+  <p>A modern consortia platform enabling organizations to collaborate on shared challenges with trust, governance, and measurable outcomes.</p>
+  <div class="buttons">
+    <a href="#join" class="primary-btn">Explore Membership</a>
+    <a href="#model" class="secondary-btn">How It Works</a>
+  </div>
+</section>
+
+<section id="about">
+  <h2>What Is a Consortium?</h2>
+  <p class="subheading">A consortium is a structured collaboration model designed for organizations that share systemic challenges and long-term objectives.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Member-Driven</h3>
+      <p>Members shape priorities, initiatives, and outcomes through transparent governance.</p>
+    </div>
+    <div class="card">
+      <h3>Non-Competitive</h3>
+      <p>Collaboration occurs in clearly defined, non-competitive areas aligned with regulation.</p>
+    </div>
+    <div class="card">
+      <h3>Outcome-Focused</h3>
+      <p>Every initiative is delivered with milestones, KPIs, and measurable value.</p>
+    </div>
+  </div>
+</section>
+
+<section id="model" class="highlight">
+  <div class="split">
+    <div>
+      <h2>The Consortia Model</h2>
+      <p class="subheading">Designed to reduce cost, risk, and duplication while accelerating shared progress.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Shared Investment</h3>
+        <p>Pool resources to fund infrastructure, research, and platforms.</p>
+      </div>
+      <div class="card">
+        <h3>Neutral Operations</h3>
+        <p>An independent operator ensures fairness and transparency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <h2>Why Join?</h2>
+  <p class="subheading">Consortia deliver strategic advantages that no single organization can achieve alone.</p>
+  <div class="grid">
+    <div class="card"><h3>Lower Costs</h3><p>Reduce duplicated spend across organizations.</p></div>
+    <div class="card"><h3>Faster Delivery</h3><p>Accelerate timelines through shared execution.</p></div>
+    <div class="card"><h3>Resilience</h3><p>Strengthen operational and systemic resilience.</p></div>
+    <div class="card"><h3>Influence</h3><p>Engage vendors and stakeholders with a unified voice.</p></div>
+  </div>
+</section>
+
+<section id="governance" class="highlight">
+  <h2>Governance & Trust</h2>
+  <p class="subheading">Every consortium is built on strong governance, legal clarity, and regulatory awareness.</p>
+  <div class="grid">
+    <div class="card"><h3>Clear Rules</h3><p>Defined scope, roles, and decision rights.</p></div>
+    <div class="card"><h3>Secure Collaboration</h3><p>Data and participation controls by design.</p></div>
+    <div class="card"><h3>Regulatory Alignment</h3><p>Frameworks aligned with supervisory expectations.</p></div>
+  </div>
+</section>
+
+<section id="join">
+  <h2>Join the Consortium</h2>
+  <p class="subheading">If collaboration is a strategic priority, we invite you to explore membership.</p>
+  <div class="buttons">
+    <a href="#" class="primary-btn">Request Information</a>
+    <a href="#" class="secondary-btn">Schedule a Briefing</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Consortia</p>
+  <p>Trusted collaboration for complex industries</p>
+</footer>
+
+</body>
+</html>
