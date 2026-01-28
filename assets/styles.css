@@ -203,11 +203,11 @@ main {
    LINKS & LISTS
 ========================= */
 a {
-  color: var(--pink);
+  color: var(--white);
 }
 
 a:hover {
-  color: var(--orange);
+  color: var(--text-dark);
 }
 
 ul {
