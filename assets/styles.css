@@ -1,40 +1,56 @@
-  :root {
+/* =========================
+   CSS VARIABLES & GRADIENTS
+========================= */
+:root {
   --primary: #1d3557;
   --secondary: #457b9d;
   --accent: #e63946;
+  --light: #f1faee;
+  --dark: #0b132b;
 
-  /* Gradients */
   --gradient-primary: linear-gradient(135deg, #1d3557, #457b9d);
   --gradient-secondary: linear-gradient(135deg, #457b9d, #a8dadc);
   --gradient-accent: linear-gradient(135deg, #e63946, #f28482);
   --gradient-light: linear-gradient(135deg, #f1faee, #ffffff);
 }
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--background);
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
-      padding: 28px 64px;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-  background: var(--gradient-primary);
-  padding: 1rem 2rem;
+/* =========================
+   BASE RESET
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-    }
-   nav a {
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+nav {
+  background: var(--gradient-primary);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  color: white;
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.25rem;
+  font-weight: 500;
   position: relative;
 }
 
@@ -52,188 +68,53 @@ nav a::after {
 nav a:hover::after {
   width: 100%;
 }
-    section {
-      padding: 90px 24px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .hero {
-      text-align: center;
-      padding: 120px 24px 100px;
-    }
-    .hero h1 {
-      font-size: 44px;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.2;
-    }
-    .hero p {
-      max-width: 700px;
-      margin: 24px auto 36px;
-      color: #e5e7eb;
-      font-size: 18px;
-    }
-    h2 {
-      font-size: 34px;
-      margin-bottom: 12px;
-    }
-    .subheading {
-      color: var(--muted);
-      max-width: 800px;
-      margin-bottom: 48px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-    }
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    }
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-    .card p {
-      color: var(--muted);
-      margin: 0;
-    }
-    footer {
-      background: linear-gradient(135deg, #ff2f92, #ff8c1a);
-      color: #cbd5e1;
-      padding: 48px 24px;
-      text-align: center;
-    }
 
-
-    .subscribe {
-  max-width: 500px;
-  margin: 4rem auto;
-  padding: 2.5rem 2rem;
-  background: #ffffff;
-  border-radius: 28px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-.subscribe h2 {
-  font-size: 2rem;
-  color: #1d3557;
-  margin-bottom: 0.5rem;
-}
-
-.subscribe p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 1.5rem;
-}
-
-.subscribe form {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.subscribe input {
-  flex: 1;
-  padding: 0.9rem 1.1rem;
-  font-size: 1rem;
-  border-radius: 999px;
-  border: 2px solid #e5e7eb;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.subscribe input:focus {
-  border-color: #457b9d;
-}
-
-.subscribe button {
-  padding: 0.9rem 1.6rem;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(135deg, #457b9d, #a8dadc);
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.subscribe button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.subscribe small {
-  display: block;
-  margin-top: 1rem;
-  color: #777;
-  font-size: 0.85rem;
-}
-
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #ffffff;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Navigation */
-nav {
-  background: var(--primary);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav h1 {
-  color: white;
-  font-size: 1.5rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 1.25rem;
-  font-weight: 500;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Hero */
+/* =========================
+   HERO SECTION
+========================= */
 header.hero {
-  background: linear-gradient(135deg, var(--secondary), #a8dadc);
+  background: linear-gradient(
+    135deg,
+    #1d3557 0%,
+    #457b9d 50%,
+    #a8dadc 100%
+  );
   color: white;
   padding: 5rem 1.5rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255,255,255,0.15),
+    transparent 60%
+  );
 }
 
 header.hero h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 header.hero p {
   font-size: 1.3rem;
   max-width: 700px;
   margin: auto;
+  position: relative;
+  z-index: 1;
 }
 
-/* Layout */
+/* =========================
+   MAIN LAYOUT
+========================= */
 main {
   max-width: 1100px;
   margin: auto;
@@ -247,7 +128,9 @@ main {
   margin-bottom: 3rem;
 }
 
-/* Cards */
+/* =========================
+   GRID & CARDS
+========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -255,11 +138,14 @@ main {
 }
 
 .card {
-  background: var(--light);
+  background: var(--gradient-light);
   padding: 2rem;
   border-radius: 24px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  box-shadow:
+    0 15px 30px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.6);
   text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card h3 {
@@ -267,14 +153,25 @@ main {
   margin-bottom: 0.75rem;
 }
 
-/* CTA */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   CTA SECTION
+========================= */
 .cta {
-  background: var(--accent);
+  background: var(--gradient-accent);
   color: white;
   padding: 3rem 2rem;
   border-radius: 32px;
   text-align: center;
   margin-top: 4rem;
+}
+
+.cta h2 {
+  font-size: 2.2rem;
 }
 
 .cta a {
@@ -286,9 +183,34 @@ main {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Footer */
+.cta a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 30px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   LINKS & LISTS
+========================= */
+a {
+  color: var(--secondary);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
 footer {
   text-align: center;
   padding: 2rem;
