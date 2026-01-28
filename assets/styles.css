@@ -29,13 +29,29 @@
       align-items: center;
       max-width: 1200px;
       margin: auto;
+  background: var(--gradient-primary);
+  padding: 1rem 2rem;
+}
+
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-    }
+   nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
     section {
       padding: 90px 24px;
       max-width: 1200px;
