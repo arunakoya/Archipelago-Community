@@ -1,12 +1,15 @@
   :root {
-      --primary: #ff2f92; /* hot pink */
-      --secondary: #ff8c1a; /* orange */
-      --background: #fff5f9;
-      --card: #ffffff;
-      --text: #2b1b22;
-      --muted: #8b5a6a;
-      --radius: 14px;
-    }
+  --primary: #1d3557;
+  --secondary: #457b9d;
+  --accent: #e63946;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #1d3557, #457b9d);
+  --gradient-secondary: linear-gradient(135deg, #457b9d, #a8dadc);
+  --gradient-accent: linear-gradient(135deg, #e63946, #f28482);
+  --gradient-light: linear-gradient(135deg, #f1faee, #ffffff);
+}
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
