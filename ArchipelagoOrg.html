@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slideshow Gallery</title>
+   <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff5f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 800px;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Navigation buttons */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 122, 0, 0.8);
+      color: #fff;
+      font-weight: bold;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: #d65c00;
+    }
+
+    .prev { left: 16px; }
+    .next { right: 16px; }
+
+    /* Caption text */
+    .caption {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(214,92,0,0.8);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+ 
+<body>
+
+  <div class="slideshow-container">
+
+    <div class="slide">
+      <img src="assets/Kalytheros-1.jpeg" alt="The Archipelago">
+      <div class="caption">About the Archipelago1</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/Kalytheros-2.jpeg" alt="Experiences Initiative">
+      <div class="caption">Why Kalytheros, the Experiences Initiative</div>
+    </div>
+
+    <div class="slide">
+      <img src="assets/Kalytheros-3.jpeg" alt="Business Model">
+      <div class="caption">Archipelago Business Model</div>
+    </div>
+       <div class="slide">
+      <img src="assets/Kalytheros-4.jpeg" alt="Experiences Ecosystem">
+      <div class="caption">Kalytheros Ecosystem</div>
+    </div>
+       <div class="slide">
+      <img src="assets/Kalytheros-5.jpeg" alt="Benefits">
+      <div class="caption">Benefits of Kalytheros</div>
+    </div>
+       <div class="slide">
+      <img src="assets/Kalytheros-6.jpeg" alt="Who is involved?">
+      <div class="caption">Who has skin in the game?</div>
+    </div>
+       <div class="slide">
+      <img src="assets/Kalytheros-7.jpeg" alt="Products">
+      <div class="caption">Product Ecosystem</div>
+    </div>
+       <div class="slide">
+      <img src="assets/Kalytheros-8.jpeg" alt="Technology">
+      <div class="caption">Technology Ecosystem</div>
+    </div>
+       <div class="slide">
+      <img src="assets/Kalytheros-9.jpeg" alt="Going Live">
+      <div class="caption">Bringing it to Life</div>
+    </div>
+
+       <div class="slide">
+      <img src="assets/Kalytheros-10.jpeg" alt="What Next?">
+      <div class="caption">Summary - What's next?</div>
+    </div>
+    <!-- Navigation buttons -->
+    <div class="prev" onclick="changeSlide(-1)">&#10094;</div>
+    <div class="next" onclick="changeSlide(1)">&#10095;</div>
+
+  </div>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      if (index >= slides.length) currentSlide = 0;
+      if (index < 0) currentSlide = slides.length - 1;
+
+      slides.forEach(slide => slide.style.display = 'none');
+      slides[currentSlide].style.display = 'block';
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      showSlide(currentSlide);
+    }
+
+    // Auto-slide every 5 seconds
+    function autoSlide() {
+      currentSlide++;
+      showSlide(currentSlide);
+      setTimeout(autoSlide, 10000);
+    }
+
+    // Initialize
+    showSlide(currentSlide);
+    setTimeout(autoSlide, 10000);
+  </script>
+<a href="Initiatives.html>More Initiatives</>
+<a href="Initiatives.html>Home</>
+  
+</body>
+</html>
