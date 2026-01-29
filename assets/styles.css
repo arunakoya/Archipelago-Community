@@ -107,6 +107,10 @@ header.hero h2 {
   z-index: 1;
 }
 
+boldtext {
+   color: var(--pink); 
+}
+
 header.hero p {
   font-size: 1.3rem;
   max-width: 720px;
