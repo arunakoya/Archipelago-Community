@@ -5,128 +5,291 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Archipelago Community</title>
 
-  <!-- Main site styles -->
-  <link rel="stylesheet" href="assets/styles.css">
-
-  <!-- Optional: page-specific styles -->
   <style>
-    .logo-hero {
-      min-height: 70vh;
+    /* RESET */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: #0b1c3a; /* dark blue text */
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* BRAND VARIABLES */
+    :root {
+      --gradient: linear-gradient(90deg, #ff7a18, #ff2f92);
+      --orange: #ff7a18;
+      --pink: #ff2f92;
+      --dark: #0b1c3a;
+      --light-gray: #e5e7eb;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      z-index: 1000;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    nav .logo {
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(135deg, #f97316, #ec4899);
+      padding: 0 6rem;
+      background:
+        linear-gradient(180deg, #fff 60%, #fff5fa 100%);
     }
 
-    .logo-box {
-      background: white;
-      padding: 3rem 3.5rem;
-      border-radius: 40px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    .hero-content {
+      max-width: 640px;
     }
 
-    .logo-box img {
-      max-width: 260px;
-      width: 100%;
-      height: auto;
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
     }
 
-    .logo-box h1 {
-      margin-top: 1.5rem;
-      font-size: 2rem;
-      color: #0f172a; /* dark blue */
+    .hero h1::after {
+      content: "";
+      display: block;
+      width: 120px;
+      height: 4px;
+      margin-top: 1rem;
+      background: var(--gradient);
     }
 
-    .logo-box p {
-      margin-top: 0.5rem;
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
       color: #334155;
-      font-size: 1.1rem;
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      border: 2px solid transparent;
+      background:
+        linear-gradient(#fff, #fff) padding-box,
+        var(--gradient) border-box;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 4rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 80px;
+      height: 3px;
+      background: var(--gradient);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+    }
+
+    .card {
+      padding-left: 1.5rem;
+      border-left: 3px solid transparent;
+      border-image: var(--gradient) 1;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    /* IMAGE STRIP */
+    .image-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 60vh;
+      position: relative;
+    }
+
+    .image-strip::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient);
+      z-index: 2;
+    }
+
+    .image-strip div {
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #f8fafc;
+      padding: 4rem;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    footer .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+    }
+
+    footer h4 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      position: relative;
+    }
+
+    footer h4::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 2px;
+      margin-top: 0.5rem;
+      background: var(--gradient);
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #475569;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Navigation --> <nav>
-  <h1>Archipelago Community</h1>
-  <div>
-    <a href="Home.html">Home</a>
-    <a href="About.html">About</a>
-    <a href="Members_Partners.html">Members</a>
-    <a href="Initiatives.html">Initiatives</a>
-    <a href="Resources.html">Resources</a>
-    <a href="connect.html">Join</a>
-    <a href="Contact.html">Contact</a>
-  </div>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">ARCHIPELAGO Anektos</div>
+    <ul>
+      <li>Initiatives</li>
+      <li>Goals</li>
+      <li>Community</li>
+    </ul>
+  </nav>
 
-  <!-- Central Logo Section -->
-  <section class="logo-hero">
-    <div class="logo-box">
-
-      <!-- LOGO IMAGE -->
-      <!-- Replace src with your logo file -->
-      <img src="assets/Archipelago.jpeg" alt="Archipelago Community Logo">
-
-      <!-- Text fallback / tagline -->
-      <h1>Archipelago Community</h1>
-      <p>Diverse and Trusted</p>
-      <p>Connecting communities through collaboration</p>
-
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Better Together</h1>
+      <p>
+        A community of independent eco-friendly companies connected through shared values,
+        cooperation, and mutual support.
+      </p>
+      <a href="#">Explore the community</a>
     </div>
   </section>
 
-  <!-- Optional supporting content -->
-  <main>
-    <h2 class="section-title">Diverse and Trusted</h2>
+  <!-- CONTENT -->
+  <section>
+    <h2 class="section-title">What We Do</h2>
 
-
-    <section>
-
-<h2 align="center">Start with the Why</h2>
-<P align="center">The Archipelago Community site was created to solve world challenges, similar to the UN's Sustainable Development Goals</P>
-<br>
-      <P align="center">The key to The Archipelago is that communities, get together and Archipelago It!</P>
-<br>
-      <P align="center">Want to conserve energy resources, <b class="boldtext">Archipelago It!</b><br>  <br>Come along to the Anektos - Climate Initiative site, and search amongst the solutions offered by companies. </P>
-<br>
-      <P align="center">Want to contribute towards reduction in CO2,  <b class="boldtext">Archipelago It!</b> <br><br> Come along to the Anektos - Climate Initiative site, and offer a solution.   </P>
-<br>
-      <P align="center">Want to find new Educational resources,  <b class="boldtext">Archipelago It!</b> <br><br> Come along to the Biblios - Education Initiative site, and search amongst the solutions offered by companies. </P>
-  <br>
-      <br>
-      <Br>
-<h2 align="center">What does the Archipelago offer?</h2>
-    The Archipelago focuses on delivering the intiatives focused on solving world challenges. 
-    <br>
-      Each initiative has certain themes, and the solutions fall into those themes. 
-      <br>
-      Communities stand with solidarity to solve the challenges step by step, and with lucrative returns. 
-           
-    </section>
-     <section class="grid">
-      <a href="Members_Partners.html"><div class="card">
-        <h3>🤝 Get Involved as a Partner</h3>
-        <p>Independent groups working together.</p>
-      </div></a>
-      <a href="ArchipelagoOrg.html"> <div class="card">
-        <h3>Organisation</h3>
-        <p>Stronger communities through shared effort.</p>
-      </div></a>
-       <a href="Resources.html">
+    <div class="grid">
       <div class="card">
-        <h3>📖 Resources</h3>
-        <p>Stories, tools, and learning across the network.</p>
+        <h3>Community</h3>
+        <p>
+          Independent groups working together while retaining autonomy
+          and shared purpose.
+        </p>
       </div>
-         </a>
-    </section>
 
-  </main>
+      <div class="card">
+        <h3>Initiatives</h3>
+        <p>
+          Collaborative action around common goals, supported by trust
+          and dialogue.
+        </p>
+      </div>
 
-  <!-- Footer -->
+      <div class="card">
+        <h3>Marketplace</h3>
+        <p>
+          Trading together through aligned incentives that benefit people,
+          companies, and communities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE STRIP -->
+  <section class="image-strip">
+    <div style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
+    <div style="background-image:url('https://images.unsplash.com/photo-1470165511815-2dc3a6c13c39')"></div>
+    <div style="background-image:url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d')"></div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    © 2026 Archipelago Community
+    <div class="footer-grid">
+      <div>
+        <h4>Archipelago</h4>
+        <p>Stronger together through trust and cooperation.</p>
+      </div>
+      <div>
+        <h4>Network</h4>
+        <p>Community<br>Initiatives<br>Marketplace</p>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <p>Contact<br>Governance<br>Participation</p>
+      </div>
+    </div>
   </footer>
 
 </body>
