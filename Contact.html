@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact | Archipelago Community</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archipelago</title>
+
+  <!-- Main site styles -->
   <link rel="stylesheet" href="assets/styles.css">
-  <style>   nav {
-    padding: 1.2rem 3rem;
-    border-bottom: 1px solid #e5e7eb;
-    display: flex;
-    justify-content: space-between;
-  }
 
-  nav .logo {
-    font-weight: 700;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  <!-- Optional: page-specific styles -->
+  <style>
+    .logo-hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #f97316, #ec4899);
+    }
 
-  nav a {
-    margin-left: 2rem;
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: inherit;
-  }</style>
+    .logo-box {
+      background: white;
+      padding: 3rem 3.5rem;
+      border-radius: 40px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    }
+
+    .logo-box img {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+    }
+
+    .logo-box h1 {
+      margin-top: 1.5rem;
+      font-size: 2rem;
+      color: #0f172a; /* dark blue */
+    }
+
+    .logo-box p {
+      margin-top: 0.5rem;
+      color: #334155;
+      font-size: 1.1rem;
+    }
+  </style>
 </head>
+
 <body>
- <nav>
+
+  <!-- Navigation --> <nav>
   <div class="logo">ARCHIPELAGO</div>
   <div>
     <a href="index.html">Home</a>
@@ -35,20 +57,42 @@
     <a href="connect.html">Subscribe</a>
     <a href="Contact.html">Contact</a>
     
+    
   </div>
 </nav>
 
-<header class="hero">
-  <h2>Contact Us</h2>
-  <p>We’d love to hear from you.</p>
-</header>
+  <!-- Central Logo Section -->
+  <section class="logo-hero">
+    <div class="logo-box">
 
-<main>
-  <p>Email: contact@archipelagocommunity.net</p>
+      <!-- LOGO IMAGE -->
+      <!-- Replace src with your logo file -->
+      <img src="assets/Archipelago.jpeg" alt="Archipelago Community Logo">
+
+      <!-- Text fallback / tagline -->
+      <h1>Archipelago Community</h1>
+      <br>
+      <p>Initiatives that connect for world changing outcomes.</p>
+
+    </div>
+  </section>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Focused Around Our Commonalities</h1>
+       <p>Email: contact@archipelagocommunity.net</p>
     <p><a href="https://calendly.com/aruna-archipelago/meet-aruna">Book an appointment</a></p>
-</main>
-
+    </div>
+  </section>
+  <!-- Optional supporting content -->
 <footer>© 2026 Archipelago Community</footer>
+ 
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Archipelago Community
+  </footer>
 
 </body>
 </html>
