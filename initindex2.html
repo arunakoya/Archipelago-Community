@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Climate Initiative</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
     --orange:#ff6b00;
     --orange-dark:#e85f00;
     --white:#ffffff;
-    --light:#fff7f1;
+    --light:#fff6f0;
     --dark:#111111;
     --gray:#666666;
 }
@@ -24,39 +24,44 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Montserrat',sans-serif;
     color:var(--dark);
-    background:var(--white);
+    background:#fff;
+    overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* NAVIGATION */
 
 nav{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
     padding:24px 8%;
-    background:white;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    background:white;
     z-index:1000;
-    box-shadow:0 4px 20px rgba(0,0,0,.05);
+    box-shadow:0 2px 20px rgba(0,0,0,.08);
 }
 
 .logo{
-    font-size:1.7rem;
+    font-size:1.6rem;
     font-weight:900;
     color:var(--orange);
     text-transform:uppercase;
-    letter-spacing:1px;
 }
 
 nav ul{
     display:flex;
-    gap:32px;
     list-style:none;
+    gap:32px;
 }
 
 nav a{
@@ -75,13 +80,18 @@ nav a:hover{
     min-height:100vh;
     display:flex;
     align-items:center;
-    padding:120px 8% 80px;
+    padding:120px 8%;
+
     background:
     linear-gradient(
-        135deg,
-        #ff6b00 0%,
-        #ff8f33 100%
-    );
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.55)
+    ),
+    url("https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1800&q=80");
+
+    background-size:cover;
+    background-position:center;
+
     color:white;
 }
 
@@ -90,7 +100,7 @@ nav a:hover{
 }
 
 .hero h1{
-    font-size:clamp(3rem,7vw,6rem);
+    font-size:clamp(3rem,8vw,6rem);
     line-height:1;
     font-weight:900;
     margin-bottom:30px;
@@ -99,118 +109,175 @@ nav a:hover{
 
 .hero p{
     font-size:1.25rem;
+    line-height:1.8;
     max-width:700px;
     margin-bottom:40px;
-    line-height:1.8;
 }
 
 .btn{
     display:inline-block;
+    background:var(--orange);
+    color:white;
     padding:18px 40px;
-    background:white;
-    color:var(--orange);
     text-decoration:none;
-    font-weight:800;
     border-radius:60px;
+    font-weight:800;
     transition:.3s;
 }
 
 .btn:hover{
-    transform:translateY(-4px);
+    background:var(--orange-dark);
+    transform:translateY(-3px);
 }
 
-/* MISSION */
+/* GENERAL */
 
-.mission{
-    padding:120px 8%;
-    background:white;
+section{
+    padding:100px 8%;
 }
 
 .section-heading{
     font-size:3rem;
     font-weight:900;
-    margin-bottom:20px;
     text-transform:uppercase;
+    margin-bottom:20px;
 }
 
 .section-text{
-    max-width:700px;
     color:var(--gray);
-    font-size:1.1rem;
-    margin-bottom:60px;
+    max-width:700px;
+    line-height:1.8;
+    margin-bottom:50px;
+}
+
+/* MISSION */
+
+.mission{
+    background:white;
+}
+
+.mission-layout{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.mission-image img{
+    width:100%;
+    height:600px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
 .mission-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
 .card{
     background:var(--light);
+    padding:35px;
     border-left:8px solid var(--orange);
-    padding:40px;
+    border-radius:10px;
     transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 }
 
 .card h3{
     color:var(--orange);
     margin-bottom:15px;
-    font-size:1.4rem;
 }
 
 .card p{
     color:#555;
-    line-height:1.8;
+    line-height:1.7;
+}
+
+/* IMPACT BANNER */
+
+.impact-banner{
+    height:500px;
+
+    background:
+    linear-gradient(
+        rgba(255,107,0,.65),
+        rgba(255,107,0,.65)
+    ),
+    url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=80");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.overlay{
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.overlay h2{
+    color:white;
+    font-size:clamp(2rem,5vw,4rem);
+    text-align:center;
+    font-weight:900;
+    text-transform:uppercase;
 }
 
 /* UPDATES */
 
 .updates{
-    padding:120px 8%;
     background:var(--orange);
     color:white;
 }
 
-.updates .section-heading{
-    color:white;
-}
-
 .updates .section-text{
-    color:rgba(255,255,255,.85);
+    color:rgba(255,255,255,.9);
 }
 
 .news-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:30px;
 }
 
 .news-card{
     background:white;
     color:black;
-    padding:35px;
-    border-radius:12px;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.news-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.news-content{
+    padding:30px;
 }
 
 .news-date{
     color:var(--orange);
     font-weight:800;
+    font-size:.9rem;
     text-transform:uppercase;
-    font-size:.85rem;
-    letter-spacing:1px;
 }
 
-.news-card h3{
+.news-content h3{
     margin:15px 0;
-    font-size:1.4rem;
 }
 
-.news-card p{
+.news-content p{
     color:#555;
     line-height:1.7;
 }
@@ -218,7 +285,6 @@ nav a:hover{
 /* CTA */
 
 .cta{
-    padding:120px 8%;
     text-align:center;
     background:white;
 }
@@ -232,18 +298,20 @@ nav a:hover{
 
 .cta p{
     max-width:700px;
-    margin:0 auto 40px;
+    margin:auto;
     color:#666;
+    line-height:1.8;
+    margin-bottom:40px;
 }
 
 .cta-btn{
+    display:inline-block;
     background:var(--orange);
     color:white;
+    text-decoration:none;
     padding:18px 42px;
     border-radius:60px;
-    text-decoration:none;
     font-weight:800;
-    display:inline-block;
 }
 
 /* FOOTER */
@@ -252,25 +320,31 @@ footer{
     background:#111;
     color:white;
     text-align:center;
-    padding:30px;
+    padding:35px;
 }
 
-@media(max-width:768px){
+/* MOBILE */
+
+@media(max-width:900px){
 
     nav ul{
         display:none;
     }
 
-    .hero h1{
-        font-size:3.2rem;
+    .mission-layout{
+        grid-template-columns:1fr;
+    }
+
+    .mission-image img{
+        height:400px;
     }
 
     .section-heading{
-        font-size:2.2rem;
+        font-size:2.3rem;
     }
 
     .cta h2{
-        font-size:2.2rem;
+        font-size:2.3rem;
     }
 }
 </style>
@@ -283,61 +357,86 @@ footer{
     <ul>
         <li><a href="#mission">Mission</a></li>
         <li><a href="#updates">Updates</a></li>
-        <li><a href="#join">Join Us</a></li>
+        <li><a href="#join">Get Involved</a></li>
     </ul>
 </nav>
 
 <section class="hero">
+
     <div class="hero-content">
-        <h1>Climate Action Starts Today.</h1>
+
+        <h1>Climate Action Starts Today</h1>
 
         <p>
-            We unite communities, businesses, and leaders to create practical
-            solutions for a sustainable future. Together we can reduce emissions,
-            protect ecosystems, and build climate resilience.
+            We bring together communities, businesses, and changemakers
+            to create practical environmental solutions and build a more
+            sustainable future for everyone.
         </p>
 
         <a href="#mission" class="btn">Explore Our Mission</a>
+
     </div>
+
 </section>
 
 <section id="mission" class="mission">
 
-    <h2 class="section-heading">Our Mission</h2>
+    <div class="mission-layout">
 
-    <p class="section-text">
-        Climate Initiative drives meaningful environmental change through
-        education, advocacy, renewable energy programs, and community-led action.
-    </p>
+        <div>
 
-    <div class="mission-grid">
+            <h2 class="section-heading">Our Mission</h2>
 
-        <div class="card">
-            <h3>Renewable Energy</h3>
-            <p>
-                Accelerating the adoption of clean energy solutions for
-                homes, businesses, and communities.
+            <p class="section-text">
+                Climate Initiative empowers people to take meaningful action
+                through renewable energy programs, conservation efforts,
+                environmental education, and community-driven projects.
             </p>
+
+            <div class="mission-grid">
+
+                <div class="card">
+                    <h3>Renewable Energy</h3>
+                    <p>
+                        Supporting the transition to clean energy solutions
+                        that reduce carbon emissions.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Conservation</h3>
+                    <p>
+                        Restoring ecosystems and protecting biodiversity
+                        through local action.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Education</h3>
+                    <p>
+                        Providing resources and programs that inspire
+                        climate leadership.
+                    </p>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>Environmental Protection</h3>
-            <p>
-                Supporting conservation projects that restore ecosystems
-                and preserve biodiversity.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Community Engagement</h3>
-            <p>
-                Empowering people with tools, education, and opportunities
-                to make a measurable impact.
-            </p>
+        <div class="mission-image">
+            <img
+                src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1200&q=80"
+                alt="Climate volunteers">
         </div>
 
     </div>
 
+</section>
+
+<section class="impact-banner">
+    <div class="overlay">
+        <h2>Protecting Nature For Future Generations</h2>
+    </div>
 </section>
 
 <section id="updates" class="updates">
@@ -345,36 +444,51 @@ footer{
     <h2 class="section-heading">Latest Updates</h2>
 
     <p class="section-text">
-        Follow our progress and see how communities are making a difference.
+        Follow our recent milestones and community impact.
     </p>
 
     <div class="news-grid">
 
         <div class="news-card">
-            <div class="news-date">June 2026</div>
-            <h3>50,000 Trees Planted</h3>
-            <p>
-                Volunteers participated in regional restoration efforts,
-                helping strengthen local ecosystems.
-            </p>
+            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80"
+                 alt="Tree planting">
+
+            <div class="news-content">
+                <div class="news-date">June 2026</div>
+                <h3>50,000 Trees Planted</h3>
+                <p>
+                    Volunteers joined restoration projects across multiple
+                    regions to expand forest coverage.
+                </p>
+            </div>
         </div>
 
         <div class="news-card">
-            <div class="news-date">May 2026</div>
-            <h3>New Solar Partnerships</h3>
-            <p>
-                Collaborative renewable energy programs launched across
-                multiple communities.
-            </p>
+            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80"
+                 alt="Solar energy">
+
+            <div class="news-content">
+                <div class="news-date">May 2026</div>
+                <h3>New Solar Partnerships</h3>
+                <p>
+                    Community solar projects launched to improve access
+                    to renewable energy.
+                </p>
+            </div>
         </div>
 
         <div class="news-card">
-            <div class="news-date">April 2026</div>
-            <h3>Youth Climate Summit</h3>
-            <p>
-                Students and educators gathered to share innovative climate
-                solutions and future initiatives.
-            </p>
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+                 alt="Climate summit">
+
+            <div class="news-content">
+                <div class="news-date">April 2026</div>
+                <h3>Youth Climate Summit</h3>
+                <p>
+                    Students, educators, and leaders collaborated on
+                    innovative climate solutions.
+                </p>
+            </div>
         </div>
 
     </div>
@@ -382,20 +496,22 @@ footer{
 </section>
 
 <section id="join" class="cta">
+
     <h2>Join The Movement</h2>
 
     <p>
-        Become part of a growing network dedicated to climate action,
-        sustainability, and positive environmental impact.
+        Together we can create lasting environmental change. Become a
+        volunteer, partner, donor, or advocate today.
     </p>
 
     <a href="#" class="cta-btn">Get Involved</a>
+
 </section>
 
 <footer>
-    © 2026 Climate Initiative • Driving Change For A Sustainable Future
+    © 2026 Climate Initiative • Driving Sustainable Change Worldwide
 </footer>
 
 </body>
 </html>
-
+```
