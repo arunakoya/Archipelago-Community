@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Archipelago Climate Initiative</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#061017;
+    --bg-soft:#0c1821;
+    --surface:rgba(255,255,255,0.05);
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --accent:#47d7ac;
+    --accent-2:#4fc3f7;
+    --border:rgba(255,255,255,.08);
+    --max:1400px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(71,215,172,.18), transparent 35%),
+        radial-gradient(circle at 80% 40%, rgba(79,195,247,.15), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(255,255,255,.05), transparent 50%);
+    pointer-events:none;
+}
+
+.container{
+    width:min(92%, var(--max));
+    margin:auto;
+}
+
+nav{
+    position:fixed;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(20px);
+    background:rgba(6,16,23,.65);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+    max-width:var(--max);
+    margin:auto;
+    padding:22px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:.9rem;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:100px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:60px;
+    align-items:center;
+}
+
+.eyebrow{
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:.25em;
+    font-size:.8rem;
+    margin-bottom:24px;
+}
+
+.hero h1{
+    font-size:clamp(4rem,8vw,8rem);
+    line-height:.9;
+    font-weight:800;
+    margin-bottom:32px;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:1.2rem;
+    max-width:700px;
+    line-height:1.8;
+}
+
+.cta{
+    margin-top:40px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#04111b;
+    font-weight:700;
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    color:white;
+}
+
+.hero-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:40px;
+    backdrop-filter:blur(20px);
+}
+
+.metric{
+    margin-bottom:32px;
+}
+
+.metric h3{
+    font-size:3rem;
+    margin-bottom:8px;
+}
+
+.metric span{
+    color:var(--muted);
+}
+
+section{
+    padding:120px 0;
+}
+
+.section-title{
+    font-size:clamp(2.5rem,5vw,5rem);
+    margin-bottom:30px;
+}
+
+.section-sub{
+    color:var(--muted);
+    max-width:800px;
+    line-height:1.8;
+    margin-bottom:60px;
+}
+
+.mission-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:36px;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    margin-bottom:18px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.updates{
+    background:linear-gradient(
+        180deg,
+        transparent,
+        rgba(255,255,255,.02)
+    );
+}
+
+.update-list{
+    display:grid;
+    gap:24px;
+}
+
+.update{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:40px;
+    padding:30px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:22px;
+}
+
+.update-date{
+    color:var(--accent);
+    font-weight:600;
+}
+
+.update h4{
+    margin-bottom:10px;
+    font-size:1.3rem;
+}
+
+.update p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.cta-section{
+    text-align:center;
+}
+
+.cta-section h2{
+    font-size:clamp(3rem,6vw,6rem);
+    margin-bottom:24px;
+}
+
+footer{
+    border-top:1px solid var(--border);
+    padding:40px 0;
+    color:var(--muted);
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+@media(max-width:960px){
+
+.hero-grid,
+.mission-grid{
+    grid-template-columns:1fr;
+}
+
+.update{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:4rem;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <div class="logo">Archipelago Climate Initiative</div>
+
+```
+    <div class="nav-links">
+        <a href="#">Mission</a>
+        <a href="#">Programs</a>
+        <a href="#">Updates</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+```
+
+</nav>
+
+<section class="hero">
+    <div class="container hero-grid">
+
+```
+    <div>
+        <div class="eyebrow">Climate Resilience • Community • Innovation</div>
+
+        <h1>Building Climate Futures Across Island Communities.</h1>
+
+        <p>
+            The Archipelago Climate Initiative advances community-led
+            adaptation, ecosystem restoration, and climate resilience
+            through research, partnerships, and actionable solutions
+            across vulnerable coastal and island regions.
+        </p>
+
+        <div class="cta">
+            <a href="#" class="btn btn-primary">Join the Initiative</a>
+            <a href="#" class="btn btn-secondary">View Programs</a>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <div class="metric">
+            <h3>42</h3>
+            <span>Island Communities Engaged</span>
+        </div>
+
+        <div class="metric">
+            <h3>18</h3>
+            <span>Climate Adaptation Projects</span>
+        </div>
+
+        <div class="metric">
+            <h3>120K+</h3>
+            <span>People Impacted</span>
+        </div>
+    </div>
+
+</div>
+```
+
+</section>
+
+<section>
+    <div class="container">
+
+```
+    <h2 class="section-title">A Connected Climate Network</h2>
+
+    <p class="section-sub">
+        We believe resilience emerges from collaboration. By connecting
+        science, local knowledge, policy, and technology, we help
+        archipelagic communities prepare for rising seas, extreme weather,
+        biodiversity loss, and economic disruption.
+    </p>
+
+    <div class="mission-grid">
+
+        <div class="card">
+            <h3>Ecosystem Restoration</h3>
+            <p>
+                Supporting mangrove recovery, coral resilience,
+                and coastal habitat protection.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Community Adaptation</h3>
+            <p>
+                Building local capacity for climate planning,
+                emergency preparedness, and sustainable livelihoods.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Climate Research</h3>
+            <p>
+                Translating data into actionable intelligence
+                for decision-makers and local stakeholders.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<section class="updates">
+    <div class="container">
+
+```
+    <h2 class="section-title">Monthly Updates</h2>
+
+    <div class="update-list">
+
+        <article class="update">
+            <div class="update-date">
+                June 2026
+            </div>
+
+            <div>
+                <h4>Regional Mangrove Restoration Launch</h4>
+                <p>
+                    New partnerships established across coastal communities
+                    to restore degraded mangrove ecosystems and strengthen
+                    natural flood protection.
+                </p>
+            </div>
+        </article>
+
+        <article class="update">
+            <div class="update-date">
+                May 2026
+            </div>
+
+            <div>
+                <h4>Climate Data Dashboard Released</h4>
+                <p>
+                    Launch of an open-access monitoring platform providing
+                    real-time climate indicators and adaptation metrics.
+                </p>
+            </div>
+        </article>
+
+        <article class="update">
+            <div class="update-date">
+                April 2026
+            </div>
+
+            <div>
+                <h4>Island Resilience Summit</h4>
+                <p>
+                    Stakeholders from academia, government, and civil
+                    society convened to accelerate regional adaptation
+                    strategies.
+                </p>
+            </div>
+        </article>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<section class="cta-section">
+    <div class="container">
+
+```
+    <h2>Creating resilient islands for generations ahead.</h2>
+
+    <p class="section-sub" style="margin:auto;">
+        Collaborate with researchers, policymakers, innovators,
+        and communities to advance climate resilience.
+    </p>
+
+    <div class="cta" style="justify-content:center;">
+        <a href="#" class="btn btn-primary">Get Involved</a>
+    </div>
+
+</div>
+```
+
+</section>
+
+<footer>
+    <div class="container footer-inner">
+        <div>© 2026 Archipelago Climate Initiative</div>
+        <div>Climate Action • Community Leadership • Resilience</div>
+    </div>
+</footer>
+
+</body>
+</html>
