@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archipelago Community</title>
+
+  <style>
+    :root {
+      --navy: #10233f;
+      --orange: #ff8a00;
+      --pink: #ff2e88;
+      --cream: #fff7ec;
+      --white: #ffffff;
+      --text: #243044;
+      --muted: #667085;
+      --border: #eadfd2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 1.2rem;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 22px;
+      font-size: 0.95rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .primary {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .secondary {
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .hero {
+      padding: 90px 0;
+      background:
+        linear-gradient(135deg, rgba(255,138,0,0.18), rgba(255,46,136,0.15)),
+        var(--cream);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--pink);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      line-height: 1;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .hero-text {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 18px 50px rgba(16, 35, 63, 0.08);
+    }
+
+    .hero-card strong {
+      color: var(--navy);
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .mission {
+      background: var(--white);
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .mini-card,
+    .initiative-card,
+    .counsel-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .mini-card {
+      background: var(--cream);
+    }
+
+    .initiatives {
+      background: var(--cream);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .initiative-name {
+      color: var(--pink);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .initiative-card a {
+      display: inline-block;
+      margin-top: 18px;
+      font-weight: 800;
+      color: var(--orange);
+    }
+
+    .counsel {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .counsel h2,
+    .counsel h3 {
+      color: var(--white);
+    }
+
+    .counsel .eyebrow {
+      color: var(--orange);
+    }
+
+    .counsel-text {
+      color: #dbe4f0;
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .counsel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .counsel-card {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .about {
+      background: var(--white);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--orange), var(--pink));
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta h2 {
+      color: var(--white);
+    }
+
+    .cta p {
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+
+    .site-footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    @media (max-width: 850px) {
+      .header-inner,
+      .main-nav {
+        flex-direction: column;
+      }
+
+      .hero-grid,
+      .mission-grid,
+      .card-grid,
+      .counsel-grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Archipelago Community</div>
+
+      <nav class="main-nav">
+        <a href="#mission">Mission</a>
+        <a href="#initiatives">Initiatives</a>
+        <a href="#counsel">Archipelago Counsel</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="button primary">Get Involved</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Focused Around Our Commonalities</p>
+          <h1>Archipelago Community</h1>
+          <p class="hero-text">
+            A structured community platform connecting people, ideas and initiatives
+            across climate, education, markets, wildlife, resilience and shared progress.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#initiatives" class="button primary">Explore Initiatives</a>
+            <a href="#counsel" class="button secondary">Archipelago Counsel</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <strong>6</strong>
+          <p>connected initiative areas</p>
+          <br />
+          <strong>1</strong>
+          <p>shared community platform</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="mission">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Mission</p>
+          <h2>Practical cooperation for shared outcomes.</h2>
+          <p>
+            Archipelago Community brings together structured initiatives that support
+            trust, resilience, learning, exchange and environmental responsibility.
+          </p>
+        </div>
+
+        <div class="mission-grid">
+          <div class="mini-card">
+            <h3>Connect</h3>
+            <p>Bring communities, partners and initiatives into a shared structure.</p>
+          </div>
+
+          <div class="mini-card">
+            <h3>Coordinate</h3>
+            <p>Support clear roles, trusted collaboration and practical action.</p>
+          </div>
+
+          <div class="mini-card">
+            <h3>Contribute</h3>
+            <p>Create opportunities for people to participate and develop outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="initiatives" class="initiatives">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Initiatives</p>
+          <h2>Connected areas of impact</h2>
+        </div>
+
+        <div class="card-grid">
+          <article class="initiative-card">
+            <h3>Climate Initiative</h3>
+            <p class="initiative-name">Anektos</p>
+            <p>Shared climate action supporting Paris Agreement goals.</p>
+            <a href="#">Explore Climate</a>
+          </article>
+
+          <article class="initiative-card">
+            <h3>Experiences Initiative</h3>
+            <p class="initiative-name">Kalytheros</p>
+            <p>Entertainment, hospitality and community experiences.</p>
+            <a href="#">Explore Experiences</a>
+          </article>
+
+          <article class="initiative-card">
+            <h3>Credit Initiative</h3>
+            <p class="initiative-name">Axiospistos</p>
+            <p>Trusted market infrastructure, resilience and cybersecurity.</p>
+            <a href="#">Explore Credit</a>
+          </article>
+
+          <article class="initiative-card">
+            <h3>Education Initiative</h3>
+            <p class="initiative-name">Biblios</p>
+            <p>Learning resources, knowledge exchange and skills development.</p>
+            <a href="#">Explore Education</a>
+          </article>
+
+          <article class="initiative-card">
+            <h3>Marketplace Initiative</h3>
+            <p class="initiative-name">Emporio</p>
+            <p>Trusted exchange between communities, makers and partners.</p>
+            <a href="#">Explore Marketplace</a>
+          </article>
+
+          <article class="initiative-card">
+            <h3>Wildlife Initiative</h3>
+            <p class="initiative-name">Eleftheros</p>
+            <p>Protecting nature, wildlife and shared habitats.</p>
+            <a href="#">Explore Wildlife</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="counsel" class="counsel">
+      <div class="container">
+        <p class="eyebrow">Archipelago Counsel</p>
+        <h2>Guidance, coordination and trusted decision support.</h2>
+        <p class="counsel-text">
+          Archipelago Counsel provides a structured advisory layer for the community.
+          It supports cooperation between initiatives, helps resolve priorities and
+          strengthens governance through trusted counsel, practical coordination and
+          shared accountability.
+        </p>
+
+        <div class="counsel-grid">
+          <div class="counsel-card">
+            <h3>Advisory Role</h3>
+            <p>
+              Provides strategic guidance across initiatives and helps align activity
+              with the wider community mission.
+            </p>
+          </div>
+
+          <div class="counsel-card">
+            <h3>Coordination Role</h3>
+            <p>
+              Connects initiative leads, partners and contributors around shared goals,
+              timelines and responsibilities.
+            </p>
+          </div>
+
+          <div class="counsel-card">
+            <h3>Resolution Role</h3>
+            <p>
+              Supports constructive dialogue, balanced decision-making and practical
+              resolution where priorities overlap.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>A community of initiatives, built around trust.</h2>
+        </div>
+
+        <div>
+          <p>
+            Archipelago Community is designed as a clear, welcoming platform for
+            initiatives that need structure, visibility and participation.
+          </p>
+          <br />
+          <p>
+            Each initiative can grow as its own area while remaining connected to the
+            wider community purpose: cooperation, resilience and shared progress.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container">
+        <h2>Join the Archipelago Community</h2>
+        <p>
+          Get involved with an initiative, connect with Archipelago Counsel or subscribe
+          for future updates.
+        </p>
+
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="mailto:hello@archipelagocommunity.net" class="button primary">
+            Contact Us
+          </a>
+          <a href="#" class="button secondary">
+            Subscribe
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Archipelago Community</p>
+      <nav>
+        <a href="#initiatives">Initiatives</a>
+        <a href="#counsel">Counsel</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
